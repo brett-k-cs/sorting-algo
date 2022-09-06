@@ -16,7 +16,8 @@ function doAlgoOnPart(start, array, num) {
 	    obj[a.toLowerCase()[num]].push(a)
 	}
 	else {
-	    obj[a.toLowerCase()[num]] = [a]
+	    if(a.length > num) obj[a.toLowerCase()[num]] = [a]
+	    else console.log(a)
 	}
     })
 
