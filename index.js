@@ -31,15 +31,15 @@ function doAlgoOnPart(start, array, num) {
     }
 }
 
-/*
-  rl.on('line', function(line){
+rl.on('line', function(line){
     if(line.replace(/\s/g, "").length == 0) {
 	rl.close();
 	doAlgoOnPart(null, words, 0)
     } else words.push(line)
 })
-*/
 
-words = fs.readFileSync('wordlist.txt', 'utf-8').split('\n');
-doAlgoOnPart(null, words, 0);
-rl.close();
+/*
+  words = fs.readFileSync('wordlist.txt', 'utf-8').split('\n');
+  doAlgoOnPart(null, words, 0);
+  rl.close();
+*/

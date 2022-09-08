@@ -60,7 +60,8 @@ int main() {
   //  cout << "Please enter the words you want to compare! When you are done, input a blank line." << endl;
 
   vector<string> words = {};
-  
+
+  /*
   ifstream fin;
   string line;
   
@@ -79,6 +80,12 @@ int main() {
 	    }
 	}
     }
+  */
+
+  for (std::string line; std::getline(std::cin, line);) {
+    if(line.length() == 0) break;
+    words.push_back(line);
+  }
   
   doAlgoOnPart(words, 0);
   
