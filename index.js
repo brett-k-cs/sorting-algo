@@ -1,3 +1,4 @@
+const fs = require('fs')
 var readline = require('readline');
 var rl = readline.createInterface({
     input: process.stdin,
@@ -7,7 +8,7 @@ var rl = readline.createInterface({
 
 var words = []
 
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var alphabet = ["-", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 function doAlgoOnPart(start, array, num) {
     var obj = {}
@@ -30,9 +31,15 @@ function doAlgoOnPart(start, array, num) {
     }
 }
 
-rl.on('line', function(line){
+/*
+  rl.on('line', function(line){
     if(line.replace(/\s/g, "").length == 0) {
 	rl.close();
 	doAlgoOnPart(null, words, 0)
     } else words.push(line)
 })
+*/
+
+words = fs.readFileSync('wordlist.txt', 'utf-8').split('\n');
+doAlgoOnPart(null, words, 0);
+rl.close();
