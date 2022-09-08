@@ -3,6 +3,9 @@
 #include <unordered_map>
 #include <string>
 #include <algorithm>
+#include <string.h>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -23,6 +26,10 @@ void doAlgoOnPart(vector<string> words, int num) {
     for_each(wordCopy.begin(), wordCopy.end(), [](char & c){
       c = ::tolower(c);
     });
+    if(wordCopy.size() <= num) {
+      cout << word << endl;
+      continue;
+    };
     char letter = wordCopy.at(num);
     if (check_key(map, letter))
       {
@@ -43,16 +50,36 @@ void doAlgoOnPart(vector<string> words, int num) {
       if(map[alphabet[i]].size() > 1) {
 	doAlgoOnPart(map[alphabet[i]], num + 1);
       } else {
-	cout << map[alphabet[i]][0];
+	cout << map[alphabet[i]][0] << endl;
       }
     }
   }
 }
 
 int main() {
-  cout << "Please enter the words you want to compare! When you are done, input a blank line." << endl;
+  //  cout << "Please enter the words you want to compare! When you are done, input a blank line." << endl;
 
-  vector<string> words = {"a", "ab", "abc"};
+  vector<string> words = {};
+  
+  ifstream fin;
+  string line;
+  
+  fin.open( ( "wordlist.txt" ) );
+
+  if ( fin.is_open())
+    {
+      while ( getline ( fin, line ))
+	{
+	  stringstream ss;
+	  ss << line;
+
+	  if ( getline ( ss, line, ','))
+	    {
+	      words.push_back( line );
+	    }
+	}
+    }
+  
   doAlgoOnPart(words, 0);
   
   return 0;
