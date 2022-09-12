@@ -46,8 +46,5 @@ rl.on('line', function(line){
     } else words.push(line)
 })
 
-/*
-  words = fs.readFileSync('wordlist.txt', 'utf-8').split('\n');
-  doAlgoOnPart(words, 0);
-  rl.close();
-*/
+
+
