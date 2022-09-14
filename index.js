@@ -15,9 +15,10 @@ const alphabet = ["'", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 
 function doAlgoOnPart(array, num) {
     const obj = {}
-    const chr = a.toLowerCase()[num]
     // loops through the words array, adding to the obj the key based on the wanted character
     array.forEach(a => {
+	const chr = a.toLowerCase()[num]
+	
 	if(obj[chr]) {
 	    obj[chr].push(a)
 	}
@@ -27,18 +28,16 @@ function doAlgoOnPart(array, num) {
 	}
     })
 
-    const keys = Object.keys(obj)
-    const lettersIn = alphabet.filter(a=>keys.contains(a))
-    
+    const keys = Object.keys(obj);
+    const lettersIn = alphabet.filter(a => keys.includes(a));
+        
     // loops through the alphabet, checking if the object has the character as a key.
     for(var i = 0; i < lettersIn.length; i++) {
 	const letter = lettersIn[i];
-	if(obj[letter]) {
-	    // then it checks if the array associated with the value of that key has more than one element.
-	    if(obj[letter].length > 1) {
-		doAlgoOnPart(obj[letter], num + 1)
-	    } else console.log(obj[letter][0])
-	}
+	// then it checks if the array associated with the value of that key has more than one element.
+	if(obj[letter].length > 1) {
+	    doAlgoOnPart(obj[letter], num + 1)
+	} else console.log(obj[letter][0])
     }
 }
 
