@@ -9,7 +9,7 @@
 
 using namespace std;
 
-char alphabet [28] = {'\'', '-', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+char alphabet [27] = {'\'', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
 bool check_key(unordered_map<char, vector<string>> m, char key)
 {
@@ -23,11 +23,9 @@ void doAlgoOnPart(vector<string> words, int num) {
   unordered_map<char, vector<string>> map;
   for(string word : words) {
     string wordCopy = word;
-    /*
     for_each(wordCopy.begin(), wordCopy.end(), [](char & c){
       c = ::tolower(c);
     });
-    */
     if(wordCopy.size() <= num) {
       cout << word << endl;
       continue;
@@ -45,7 +43,7 @@ void doAlgoOnPart(vector<string> words, int num) {
       }
   }
 
-  for(int i = 0; i < 28; i++) {
+  for(int i = 0; i < 27; i++) {
     char letter = alphabet[i];
     if(check_key(map, letter)) {
       if(map[letter].size() > 1) {
@@ -66,6 +64,8 @@ int main() {
     if(line.length() == 0) break;
     words.push_back(line);
   }
+
+  cout << endl << "HELLO!" << endl << endl;
   
   doAlgoOnPart(words, 0);
   
