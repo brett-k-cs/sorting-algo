@@ -47,6 +47,8 @@ function doAlgoOnPart(array, num) {
 rl.on('line', function(line){
     if(line.replace(/\s/g, "").length == 0) {
 	rl.close();
+//	words.sort();
+//	words.forEach(a=>console.log(a));
 	doAlgoOnPart(words, 0)
     } else words.push(line)
 })

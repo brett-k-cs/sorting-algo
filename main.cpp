@@ -33,9 +33,7 @@ void doAlgoOnPart(vector<string> words, int num) {
     char letter = wordCopy.at(num);
     if (check_key(map, letter))
       {
-	vector<string> currentWords = map[letter];
-	currentWords.push_back(word);
-	map[letter] = currentWords;
+	map[letter].push_back(word);
       }
     else
       {
@@ -46,11 +44,12 @@ void doAlgoOnPart(vector<string> words, int num) {
   }
 
   for(int i = 0; i < 28; i++) {
-    if(check_key(map, alphabet[i])) {
-      if(map[alphabet[i]].size() > 1) {
-	doAlgoOnPart(map[alphabet[i]], num + 1);
+    char letter = alphabet[i];
+    if(check_key(map, letter)) {
+      if(map[letter].size() > 1) {
+	doAlgoOnPart(map[letter], num + 1);
       } else {
-	cout << map[alphabet[i]][0] << endl;
+	cout << map[letter][0] << endl;
       }
     }
   }
@@ -60,27 +59,6 @@ int main() {
   //  cout << "Please enter the words you want to compare! When you are done, input a blank line." << endl;
 
   vector<string> words = {};
-
-  /*
-  ifstream fin;
-  string line;
-  
-  fin.open( ( "wordlist.txt" ) );
-
-  if ( fin.is_open())
-    {
-      while ( getline ( fin, line ))
-	{
-	  stringstream ss;
-	  ss << line;
-
-	  if ( getline ( ss, line, ','))
-	    {
-	      words.push_back( line );
-	    }
-	}
-    }
-  */
 
   for (std::string line; std::getline(std::cin, line);) {
     if(line.length() == 0) break;
