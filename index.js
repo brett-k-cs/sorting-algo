@@ -42,12 +42,12 @@ function doAlgoOnPart(array, num) {
 }
 
 // calls this function every time a user inputs a new line.
-rl.on('line', function(line){
+rl.on('line', function(line) {
     if(line.replace(/\s/g, "").length == 0) {
 	rl.close();
+//	words.sort()
+//	console.log(words.join("\n"))
 
-	console.log("\nHELLO!\n")
-	
 	doAlgoOnPart(words, 0)
     } else {
 	words.push(line)
