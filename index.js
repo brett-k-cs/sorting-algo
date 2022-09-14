@@ -1,39 +1,44 @@
 // Packages:
 const fs = require('fs')
-var readline = require('readline');
+const readline = require('readline');
 
 // Starts the readline process (to understand input from stdin)
-var rl = readline.createInterface({
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: true
 });
 
-var words = []
+const words = []
 
 // list of characters to go through
-var alphabet = ["-", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+const alphabet = ["'", "-", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 function doAlgoOnPart(array, num) {
-    var obj = {}
+    const obj = {}
+    const chr = a.toLowerCase()[num]
     // loops through the words array, adding to the obj the key based on the wanted character
     array.forEach(a => {
-	if(obj[a.toLowerCase()[num]]) {
-	    obj[a.toLowerCase()[num]].push(a)
+	if(obj[chr]) {
+	    obj[chr].push(a)
 	}
 	else {
-	    if(a.length > num) obj[a.toLowerCase()[num]] = [a]
+	    if(a.length > num) obj[chr] = [a]
 	    else console.log(a)
 	}
     })
 
+    const keys = Object.keys(obj)
+    const lettersIn = alphabet.filter(a=>keys.contains(a))
+    
     // loops through the alphabet, checking if the object has the character as a key.
-    for(var i = 0; i < alphabet.length; i++) {
-	if(obj[alphabet[i]]) {
+    for(var i = 0; i < lettersIn.length; i++) {
+	const letter = lettersIn[i];
+	if(obj[letter]) {
 	    // then it checks if the array associated with the value of that key has more than one element.
-	    if(obj[alphabet[i]].length > 1) {
-		doAlgoOnPart(obj[alphabet[i]], num + 1)
-	    } else console.log(obj[alphabet[i]][0])
+	    if(obj[letter].length > 1) {
+		doAlgoOnPart(obj[letter], num + 1)
+	    } else console.log(obj[letter][0])
 	}
     }
 }

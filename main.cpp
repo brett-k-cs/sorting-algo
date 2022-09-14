@@ -9,7 +9,7 @@
 
 using namespace std;
 
-char alphabet [27] = {'-', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+char alphabet [28] = {'\'', '-', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
 bool check_key(unordered_map<char, vector<string>> m, char key)
 {
@@ -45,7 +45,7 @@ void doAlgoOnPart(vector<string> words, int num) {
       }
   }
 
-  for(int i = 0; i < 27; i++) {
+  for(int i = 0; i < 28; i++) {
     if(check_key(map, alphabet[i])) {
       if(map[alphabet[i]].size() > 1) {
 	doAlgoOnPart(map[alphabet[i]], num + 1);
