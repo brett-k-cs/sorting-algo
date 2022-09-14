@@ -1,5 +1,4 @@
 // Packages:
-const fs = require('fs')
 const readline = require('readline');
 
 // Starts the readline process (to understand input from stdin)
@@ -12,7 +11,7 @@ const rl = readline.createInterface({
 const words = []
 
 // list of characters to go through
-const alphabet = ["'", "-", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+const alphabet = ["'", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 function doAlgoOnPart(array, num) {
     const obj = {}
@@ -50,6 +49,3 @@ rl.on('line', function(line){
 	doAlgoOnPart(words, 0)
     } else words.push(line)
 })
-
-
-
