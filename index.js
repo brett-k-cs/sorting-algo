@@ -45,6 +45,11 @@ function doAlgoOnPart(array, num) {
 rl.on('line', function(line){
     if(line.replace(/\s/g, "").length == 0) {
 	rl.close();
+
+	console.log("\nHELLO!\n")
+	
 	doAlgoOnPart(words, 0)
-    } else words.push(line)
+    } else {
+	words.push(line)
+    }
 })
