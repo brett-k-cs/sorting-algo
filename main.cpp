@@ -23,9 +23,11 @@ void doAlgoOnPart(vector<string> words, int num) {
   unordered_map<char, vector<string>> map;
   for(string word : words) {
     string wordCopy = word;
+    /*
     for_each(wordCopy.begin(), wordCopy.end(), [](char & c){
       c = ::tolower(c);
     });
+    */
     if(wordCopy.size() <= num) {
       cout << word << endl;
       continue;
