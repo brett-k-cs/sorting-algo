@@ -1,13 +1,3 @@
-// Packages:
-const readline = require('readline');
-
-// Starts the readline process (to understand input from stdin)
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: true
-});
-
 const words = []
 
 // list of characters to go through
@@ -27,10 +17,10 @@ function doAlgoOnPart(array, num) {
 	    else console.log(a)
 	}
     })
-
+    
     const keys = Object.keys(obj);
     const lettersIn = alphabet.filter(a => keys.includes(a));
-        
+    
     // loops through the alphabet, checking if the object has the character as a key.
     for(var i = 0; i < lettersIn.length; i++) {
 	const letter = lettersIn[i];
@@ -41,15 +31,30 @@ function doAlgoOnPart(array, num) {
     }
 }
 
-// calls this function every time a user inputs a new line.
-rl.on('line', function(line) {
-    if(line.replace(/\s/g, "").length == 0) {
-	rl.close();
-//	words.sort()
-//	console.log(words.join("\n"))
+    // Packages:
+    const readline = require('readline');
+    
+    // Starts the readline process (to understand input from stdin)
+    const rl = readline.createInterface({
+	input: process.stdin,
+	output: process.stdout,
+	terminal: true
+    });
+    
 
-	doAlgoOnPart(words, 0)
-    } else {
-	words.push(line)
-    }
+    // calls this function every time a user inputs a new line.
+    rl.on('line', function(line) {
+	if(line.replace(/\s/g, "").length == 0) {
+	    rl.close();
+	    //	words.sort()
+	    //	console.log(words.join("\n"))
+	    
+//	    doAlgoOnPart(words, 0)
+	} else {
+	    words.push(line)
+	}
+    });
+
+rl.on('close', function(line) {
+    doAlgoOnPart(words, 0)
 })
