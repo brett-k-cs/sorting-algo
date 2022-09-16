@@ -20,12 +20,20 @@ bool check_key(unordered_map<char, vector<string>> m, char key)
 }
 
 void doAlgoOnPart(vector<string> words, int num) {
+  cout << "Starting algo" << endl;
+
+  int b = 0;
+  
   unordered_map<char, vector<string>> map;
   for(string word : words) {
+    b += 1;
+    if(b % 100 == 0) cout << b << endl;
+    
     string wordCopy = word;
     for_each(wordCopy.begin(), wordCopy.end(), [](char & c){
       c = ::tolower(c);
     });
+    
     if(wordCopy.size() <= num) {
       cout << word << endl;
       continue;
