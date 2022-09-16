@@ -1,3 +1,6 @@
+// Packages:
+const readline = require('readline');
+
 const words = []
 
 // list of characters to go through
@@ -25,36 +28,30 @@ function doAlgoOnPart(array, num) {
     for(var i = 0; i < lettersIn.length; i++) {
 	const letter = lettersIn[i];
 	// then it checks if the array associated with the value of that key has more than one element.
-	if(obj[letter].length > 1) {
-	    doAlgoOnPart(obj[letter], num + 1)
-	} else console.log(obj[letter][0])
+	if(obj[letter].length > 1) doAlgoOnPart(obj[letter], num + 1)
+	else console.log(obj[letter][0])
     }
 }
 
-    // Packages:
-    const readline = require('readline');
-    
-    // Starts the readline process (to understand input from stdin)
-    const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-	terminal: true
-    });
-    
+// Starts the readline process (to understand input from stdin)
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: true
+});
 
-    // calls this function every time a user inputs a new line.
-    rl.on('line', function(line) {
-	if(line.replace(/\s/g, "").length == 0) {
-	    rl.close();
-	    //	words.sort()
-	    //	console.log(words.join("\n"))
-	    
-//	    doAlgoOnPart(words, 0)
-	} else {
-	    words.push(line)
-	}
-    });
+// calls this function every time a user inputs a new line.
+rl.on('line', function(line) {
+    if(line.length == 0) {
+	rl.close();
+    } else {
+	words.push(line)
+    }
+});
 
 rl.on('close', function(line) {
+//    words.sort()
+//    console.log(words.join("\n"))
+
     doAlgoOnPart(words, 0)
 })
