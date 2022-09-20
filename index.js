@@ -1,29 +1,29 @@
 // Packages:
 const readline = require('readline');
 
-const words = []
+const words = [];
 
 // list of characters to go through
 const alphabet = ["'", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-function doAlgoOnPart(array, num) {
+function doAlgoOnPart(words, num) {
     const obj = {}
     // loops through the words array, adding to the obj the key based on the wanted character
-    array.forEach(a => {
-	const chr = a.toLowerCase()[num]
+    words.forEach(word => {
+	const chr = word.toLowerCase()[num]
 	
 	if(obj[chr]) {
-	    obj[chr].push(a)
+	    obj[chr].push(word)
 	}
 	else {
-	    if(a.length > num) obj[chr] = [a]
-	    else console.log(a)
+	    if(word.length > num) obj[chr] = [word]
+	    else console.log(word)
 	}
     })
 
     // this is the code I made to simplify only checking keys (characters) that had a key
     const keys = Object.keys(obj);
-    const lettersIn = alphabet.filter(a => keys.includes(a));
+    const lettersIn = alphabet.filter(letter => keys.includes(letter));
     
     // loops through the alphabet, checking if the object has the character as a key.
     for(var i = 0; i < lettersIn.length; i++) {
@@ -51,8 +51,5 @@ rl.on('line', function(line) {
 });
 
 rl.on('close', function(line) {
-//    words.sort()
-//    console.log(words.join("\n"))
-
     doAlgoOnPart(words, 0)
 })
