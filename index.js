@@ -20,7 +20,8 @@ function doAlgoOnPart(array, num) {
 	    else console.log(a)
 	}
     })
-    
+
+    // this is the code I made to simplify only checking keys (characters) that had a key
     const keys = Object.keys(obj);
     const lettersIn = alphabet.filter(a => keys.includes(a));
     
@@ -37,7 +38,7 @@ function doAlgoOnPart(array, num) {
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    terminal: true
+    terminal: false
 });
 
 // calls this function every time a user inputs a new line.
