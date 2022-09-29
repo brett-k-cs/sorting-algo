@@ -6,7 +6,4 @@ A custom sorting algorithm for words (all lower case)
 ### c++: g++ main.cpp && ./a.out
 
 # Results:
-## Node:
-0.065 average (5 runs, 1000 words)
-## C++:
-0.0648 average (5 runs, 1000 words)
+https://docs.google.com/spreadsheets/d/1i_-oFKDtbGnfn03JIjko6cSPFRvKaW3FaI7dyWxSX90/edit?usp=sharing
